@@ -1,2 +1,32 @@
 ---
 # Role tasks
+- block:
+    - name: Manage openjdk
+      include_role:
+        name: amtega.openjdk
+      vars:
+        openjdk_version: "{{ java_version }}"
+        openjdk_state: "{{ java_state }}"
+        openjdk_update_alternatives: "{{ java_update_alternatives }}"
+      when:
+        - java_provider == "openjdk"
+
+    - name: Manage oracle java
+      include_role:
+        name: amtega.oracle_java
+      vars:
+        oracle_java_version: "{{ java_version }}"
+        oracle_java_state: "{{ java_state }}"
+        oracle_java_update_alternatives: "{{ java_update_alternatives }}"
+      when:
+        - java_provider == "oracle"
+
+    - name: Set fact with JAVA_HOME
+      set_fact:
+        java_home: >-
+          {{ (java_provider == 'openjdk')
+              | ternary( openjdk_java_home, oracle_java_home ) }}
+      when: java_state == 'present'
+      
+  tags:
+    - role::java

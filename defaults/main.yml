@@ -1,2 +1,6 @@
 ---
 # Role default lower priority variables
+java_provider: openjdk
+java_state: present
+java_version: latest
+java_update_alternatives: yes

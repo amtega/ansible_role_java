@@ -4,6 +4,4 @@
   hosts: molecule_hosts
   gather_facts: no
   roles:
-    - role: amtega.java
-      vars:
-        java_provider: oracle
+    - amtega.java
