@@ -4,13 +4,12 @@
   hosts: molecule_hosts
   gather_facts: no
   tasks:
-
     - name: Gather java version
-      command: /usr/bin/java --version
+      command: /usr/bin/java -version
       changed_when: no
-      register: check_openjdk_result
+      register: check_java_result
 
     - name: Assert java is installed
       assert:
         that: >-
-          check_openjdk_result.stdout is search("OpenJDK Runtime Environment")
+          check_java_result.stderr is search("Java.* SE Runtime Environment")

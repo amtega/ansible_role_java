@@ -18,6 +18,7 @@
         oracle_java_version: "{{ java_version }}"
         oracle_java_state: "{{ java_state }}"
         oracle_java_update_alternatives: "{{ java_update_alternatives }}"
+        oracle_java_accept_license: yes
       when:
         - java_provider == "oracle"
 
@@ -27,6 +28,6 @@
           {{ (java_provider == 'openjdk')
               | ternary( openjdk_java_home, oracle_java_home ) }}
       when: java_state == 'present'
-      
+
   tags:
     - role::java
