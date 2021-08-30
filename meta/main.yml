@@ -4,7 +4,7 @@ galaxy_info:
   role_name: java
   namespace: amtega
   author: José Enrique Mourón Regueira
-  description: Install java selecting provider (oracle or openjdk)
+  description: Setup java selecting provider (oracle or openjdk)
   company: AMTEGA - Xunta de Galicia
   license: GPLv3 or EUPL
   min_ansible_version: 2.10
