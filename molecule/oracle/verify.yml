@@ -9,7 +9,7 @@
       changed_when: no
       register: check_java_result
 
-    - name: Assert java is installed
+    - name: Assert Oracle Java is installed
       assert:
         that: >-
           check_java_result.stderr is search("Java.* SE Runtime Environment")
