@@ -6,11 +6,13 @@ dependency:
   options:
     ignore-certs: yes
     ignore-errors: yes
-    role-file: "${MOLECULE_SCENARIO_DIRECTORY}/requirements.yml"
-    requirements-file: "${MOLECULE_SCENARIO_DIRECTORY}/requirements.yml"
+    role-file: >-
+      ${MOLECULE_SCENARIO_DIRECTORY}/../resources/requirements.yml
+    requirements-file: >-
+      ${MOLECULE_SCENARIO_DIRECTORY}/../resources/requirements.yml
 driver:
   name: docker
-lint: "${MOLECULE_SCENARIO_DIRECTORY}/linters.sh"
+lint: "${MOLECULE_SCENARIO_DIRECTORY}/../resources/linters.sh"
 platforms:
   - name: "centos7-${INSTANCE_UUID:-1}"
     image: centos:7
@@ -42,6 +44,11 @@ provisioner:
     defaults:
       callback_enabled: profile_tasks
       action_plugins: $PWD/action_plugins
+  playbooks:
+    cleanup: ../resources/cleanup.yml
+    prepare: ../resources/prepare.yml
+    converge: ../resources/converge.yml
+    side_effect: ../resources/side_effect.yml
   inventory:
     hosts:
       molecule_hosts:

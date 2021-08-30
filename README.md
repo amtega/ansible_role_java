@@ -1,7 +1,6 @@
 # Amtega openjdk role
 
-This is an [Ansible](http://www.ansible.com) role to deploy java fron oracle official site or openjdk download site.
-Performs the integrator function for the amtega.oracle_java and amtega.openjdk roles. You can take a look at these roles if you want more details.
+This is an [Ansible](http://www.ansible.com) role to setup java from oracle or openjdk integrating both amtega.oracle_java and amtega.openjdk roles.
 
 ## Role Variables
 
@@ -10,7 +9,6 @@ A list of all the default variables for this role is available in `defaults/main
 The role setups the following facts:
 
 - `java_home`: home path of the deployed java
-
 
 ## Example Playbook
 
