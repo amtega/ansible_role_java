@@ -17,3 +17,14 @@ java_version: latest
 # Manage symbolic links using the `alternatives` module
 
 java_update_alternatives: yes
+
+# Artifact to pass to the underlying role. If not given the underlying role will
+# use the default.
+
+#java_artifact:
+
+# Default artifact attributes to combine with the ones defined in the variable
+# java_artifact. This is useful if you want to avoid copy & paste common
+# artifact attributes when calling the rol with several artifacts
+
+#java_artifact_defaults: {}
