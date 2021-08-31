@@ -1,0 +1,8 @@
+---
+
+- name: Set fact with JAVA_HOME
+  set_fact:
+    java_home: >-
+      {{ (java_provider == 'openjdk')
+          | ternary( openjdk_java_home, oracle_java_home ) }}
+  when: java_state == 'present'

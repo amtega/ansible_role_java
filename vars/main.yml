@@ -1,0 +1,4 @@
+---
+
+java_artifact_to_manage: >-
+  {{ java_artifact_defaults | default({}) | combine(java_artifact) }}
