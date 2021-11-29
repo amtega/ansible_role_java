@@ -1,0 +1,14 @@
+---
+
+- name: Setup fact with openjdk artifact
+  set_fact:
+    openjdk_artifact: "{{ java_artifact_to_manage }}"
+  when: java_artifact is defined
+
+- name: Setup openjdk
+  include_role:
+    name: amtega.openjdk
+  vars:
+    openjdk_version: "{{ java_version }}"
+    openjdk_state: "{{ java_state }}"
+    openjdk_update_alternatives: "{{ java_update_alternatives }}"
