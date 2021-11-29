@@ -3,15 +3,7 @@
 # Role tasks
 
 - block:
-    - when: java_artifact is defined
-      include_tasks: setup.yml
-      vars:
-        openjdk_artifact: "{{ java_artifact_to_manage }}"
-        oracle_artifact: "{{ java_artifact_to_manage }}"
-
-    - when: java_artifact is undefined
-      include_tasks: setup.yml
-
+    - include_tasks: "{{ java_provider }}.yml"
     - include_tasks: facts.yml
   tags:
     - role::java
