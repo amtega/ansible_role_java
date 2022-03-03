@@ -3,7 +3,9 @@
 - name: Setup fact with openjdk artifact
   set_fact:
     openjdk_artifact: "{{ java_artifact_to_manage }}"
-  when: java_artifact is defined
+  when:
+    - java_artifact is defined
+    - java_artifact.keys() | length > 0
 
 - name: Setup openjdk
   include_role:
