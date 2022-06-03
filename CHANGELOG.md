@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.0] - 2022-06-03
+### Added
+- Added local fact. Related to ansible/playbooks/tomcat#130
+
+### Changed
+- Migrated tests to podman.
+
 ## [1.2.1] - 2022-03-03
 ### Fixed
 - Detect empty artifact dictionary as undefined.

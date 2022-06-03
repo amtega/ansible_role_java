@@ -1,0 +1,8 @@
+{
+  "provider": {{ java_provider | to_json }},
+{% if java_provider == "openjdk" %}
+  "version": {{ openjdk_effective_version | to_json }}
+{% elif java_provider == "oracle" %}
+  "version": {{ oracle_java_effective_version | to_json }}
+{% endif %}
+}
