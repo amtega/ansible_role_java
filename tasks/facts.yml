@@ -5,4 +5,20 @@
     java_home: >-
       {{ (java_provider == 'openjdk')
           | ternary( openjdk_java_home, oracle_java_home ) }}
-  when: java_state == 'present'
+
+- name: Setup local facts directory
+  file:
+    path: /etc/ansible/facts.d
+    state: directory
+    mode: 0775
+
+- name: Setup local fact
+  template:
+    src: java.fact.j2
+    dest: /etc/ansible/facts.d/java.fact
+    mode: 0640
+  register: java_setup_local_fact_result
+
+- name: Refresh local facts # noqa no-handler
+  setup:
+  when: java_setup_local_fact_result is changed

@@ -4,6 +4,8 @@
 
 - block:
     - include_tasks: "{{ java_provider }}.yml"
+
     - include_tasks: facts.yml
+      when: java_state == "present"
   tags:
     - role::java
