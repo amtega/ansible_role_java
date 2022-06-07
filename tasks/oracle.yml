@@ -2,7 +2,7 @@
 
 - name: Setup facts with oracle java artifact
   set_fact:
-    oracle_artifact: "{{ java_artifact_to_manage }}"  
+    oracle_java_artifact: "{{ java_artifact_to_manage }}"  
   when:
     - java_artifact is defined
     - java_artifact.keys() | length > 0
